@@ -1,17 +1,14 @@
 require 'spec_helper'
 
 describe Anagram do
-  describe '::check' do
-    it "writes correct message for anagram" do
-      allow_any_instance_of(String).to receive(:anagram_of?).and_return(true)
+  describe '::process_file_and_save' do
+    let(:iterator) { double(:iterator) }
 
-      expect(subject.check('a', 'b')).to eq('a is an anagram of b')
-    end
+    it "calls file iterator and saves result" do
+      expect(Anagram::FileIterator).to receive(:new).with('source_file.txt').and_return(iterator)
+      expect(iterator).to receive(:save_to).with('target_file.txt')
 
-    it "writes incorrect message for not anagram" do
-      allow_any_instance_of(String).to receive(:anagram_of?).and_return(false)
-
-      expect(subject.check('a', 'b')).to eq('a is NOT an anagram of b')
+      described_class.process_file_and_save(source: 'source_file.txt', target: 'target_file.txt')
     end
   end
 end

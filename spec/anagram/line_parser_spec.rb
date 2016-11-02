@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'anagram/line_parser'
 
 describe Anagram::LineParser do
   let(:test_line) { "test line" }
