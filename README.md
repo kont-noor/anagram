@@ -2,6 +2,8 @@
 
 A tool to check anagrams
 
+[![Build Status](https://travis-ci.org/kont-noor/anagram.svg?branch=master)](https://travis-ci.org/kont-noor/anagram)
+
 ## installation
 
 add this line to your application's gemfile:
